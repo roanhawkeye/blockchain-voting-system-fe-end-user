@@ -2,16 +2,16 @@ import React from 'react';
 import './styles.scss';
 
 const Movements = () => (
-  <section className="column is-10 aside hero is-fullheight movement-section">
+  <section className="column aside hero is-fullheight movement-section">
     <div className="container has-text-centered">
-      <h1 className="title">Asset Tracking</h1>
+      <h1 className="title is-size-4">Asset Tracking</h1>
       <div className="movement-form">
         <div className="field has-addons">
           <div className="control has-50-vw">
-            <input className="input" type="text" placeholder="Find Assets" />
+            <input className="input" type="text" placeholder="Find Assets by ID" />
           </div>
           <div className="control">
-            <button className="button is-info">
+            <button className="button is-primary">
               Search
             </button>
           </div>
