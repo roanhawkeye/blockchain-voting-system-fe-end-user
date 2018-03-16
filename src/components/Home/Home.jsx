@@ -1,18 +1,26 @@
 import React from 'react';
 import './styles.scss';
-import { Redirect } from 'react-router-dom';
+
+import Transactions from './../Transactions';
 
 import API from './../../utils/API';
 
 class Home extends React.Component {
   state = {
-    redirectToReferrer: false,
-    assetId: ''
+    showTransactions: false,
+    showEvenDetail: false,
+    assetId: '',
+    assetData: {}
   };
 
   search = () => {
     API.findAsset(this.state.assetId)
-      .then(data => console.log(data))
+      .then(data => {
+        console.log(data);
+        if(data.uuid){
+          this.setState({assetData : data, showTransactions: true });
+        }
+      })
       .catch(error => console.error(error));
   }
 
@@ -21,11 +29,7 @@ class Home extends React.Component {
   }
 
   render() {
-      const { redirectToReferrer } = this.state;
-    
-      if (redirectToReferrer) {
-        return <Redirect to={{ pathname: '/summary' }} />;
-      }
+      const  showTransactions  = this.state.showTransactions;
 
       return (
         <section className="column aside hero is-fullheight movement-section">
@@ -43,6 +47,7 @@ class Home extends React.Component {
                 </div>
               </div>
             </div>
+            { showTransactions ? <Transactions /> : ''}
           </div>
         </section>
       );
