@@ -7,7 +7,7 @@ import API from './../../utils/API';
 
 class Home extends React.Component {
   state = {
-    showTransactions: false,
+    showTransactions: true,
     showEvenDetail: false,
     assetId: '',
     assetData: {}
