@@ -6,11 +6,18 @@ import API from './../../utils/API';
 
 class Home extends React.Component {
   state = {
-    redirectToReferrer: false
+    redirectToReferrer: false,
+    assetId: ''
   };
 
-  search() {
-    API.findAsset();
+  search = () => {
+    API.findAsset(this.state.assetId)
+      .then(data => console.log(data))
+      .catch(error => console.error(error));
+  }
+
+  handleInputChange = (event) => {
+    this.setState({assetId: event.target.value});
   }
 
   render() {
@@ -27,10 +34,10 @@ class Home extends React.Component {
             <div className="movement-form">
               <div className="field has-addons">
                 <div className="control has-50-vw">
-                  <input className="input" type="text" placeholder="Find Assets by ID" />
+                  <input className="input" type="text" placeholder="Find Assets by ID" onChange={this.handleInputChange} />
                 </div>
                 <div className="control">
-                  <button className="button is-primary" onClick={this.search()}>
+                  <button className="button is-primary" onClick={this.search}>
                     Search
                   </button>
                 </div>
