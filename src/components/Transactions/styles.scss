@@ -12,3 +12,17 @@
   display: flex;
   justify-content: center;
 }
+
+.detail-content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.hero-head{
+  padding-top: 18px;
+}
+
+.sub-container {
+  margin: 30px 0px;
+}
