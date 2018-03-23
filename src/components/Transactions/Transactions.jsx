@@ -2,8 +2,8 @@ import React from 'react';
 import './styles.scss';
 
 const Transactions = () => (
-  <section class="hero is-white is-medium sub-container">
-    <div class="hero-head">
+  <section className="hero is-white is-medium sub-container">
+    <div className="hero-head">
         <h1 className="title is-size-4">Transactions</h1>
         <div className="columns">
           <div className="column">
@@ -11,7 +11,7 @@ const Transactions = () => (
           </div>
         </div>
     </div>
-    <div class="hero-body">
+    <div className="hero-body">
       <div className="container">
         <div className="columns">
           <div className="column is-one-third">
