@@ -1,0 +1,28 @@
+import React from 'react';
+import Proptypes from 'prop-types';
+
+class EventBreadcrumb extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = { events: this.props.events };
+    }
+
+    render(){
+        const events = this.props.events.map((event, index) => {
+            return <li key={index}><div>{event.summary}</div></li>
+        });
+        return (
+            <nav className="breadcrumb has-succeeds-separator is-centered" aria-label="breadcrumbs">
+                <ul>
+                    {events}
+                </ul>
+            </nav>
+        );
+    }
+}
+
+EventBreadcrumb.propTypes = {
+    events: Proptypes.array.isRequired
+}
+
+export default EventBreadcrumb;

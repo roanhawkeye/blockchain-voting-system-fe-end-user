@@ -45,6 +45,10 @@ class Home extends React.Component {
     this.setState({assetId: event.target.value});
   }
 
+  handleHideMessageError = (event) => {
+    this.setState({showErrorMessage: false});
+  }
+
   render() {
       const  showTransactions  = this.state.showTransactions;
       const  showErrorMessage = this.state.showErrorMessage;
@@ -53,9 +57,10 @@ class Home extends React.Component {
         <section className="column aside hero is-fullheight movement-section">
           <div className="container has-text-centered">
             { showErrorMessage ? <Notification 
-              isActive={ true }
+              isActive={ showErrorMessage }
               message={this.state.errorMessage.message}
               isSuccess={false}
+              handleHideMessageError={this.handleHideMessageError}
               /> : ''} 
             <h1 className="title is-size-4">Asset Tracking</h1>
             <div className="movement-form">

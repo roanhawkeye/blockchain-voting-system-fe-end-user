@@ -2,16 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
 
+import EventBreadcrumb from './../EventBreadcrumb';
+
 class Transactions extends React.Component {
 
   render() {
     return (
-      <section className="hero is-white is-medium sub-container">
+      <section className="hero is-white sub-container">
         <div className="hero-head">
             <h1 className="title is-size-4">Transactions</h1>
             <div className="columns">
               <div className="column">
-                Event history
+                <EventBreadcrumb events={this.props.data.events} />
               </div>
             </div>
         </div>
@@ -21,7 +23,9 @@ class Transactions extends React.Component {
               <div className="column is-one-third">
                 <div className="title is-size-5">Asset tracking history</div>
                 <div>
-                  <img src={`data:image/jpeg;charset=utf-8;base64, ${ this.props.data.events[0].encodedImage }`} />
+                  <figure className="image is-square">
+                    <img src={`data:image/jpeg;charset=utf-8;base64, ${ this.props.data.events[0].encodedImage }`} />
+                  </figure>
                 </div>
               </div>
               <div className="column">

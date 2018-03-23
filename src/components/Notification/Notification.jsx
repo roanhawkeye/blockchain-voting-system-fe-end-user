@@ -10,14 +10,17 @@ class Notification extends React.Component {
   componentDidMount() {
     setTimeout(() => {
       this.setState({ isActive: false });
-    }, 5000);
+    }, 3000);
   }
   render() {
     return (
       <React.Fragment>
         <div className={`columns snackbar ${this.state.isActive ? 'active' : ''}`}>
           <div className="column">
-            <div className={`notification ${this.props.isSuccess ? 'is-success' : 'is-danger'}`}>{this.props.message}</div>
+            <div className={`notification ${this.props.isSuccess ? 'is-success' : 'is-danger'}`}>
+              <button className="delete" onClick={this.props.handleHideMessageError}></button>
+              {this.props.message}
+            </div>
           </div>
         </div>
       </React.Fragment>
