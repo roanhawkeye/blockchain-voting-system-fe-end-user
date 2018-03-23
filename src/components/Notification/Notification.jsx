@@ -10,7 +10,7 @@ class Notification extends React.Component {
   componentDidMount() {
     setTimeout(() => {
       this.setState({ isActive: false });
-    }, 2000);
+    }, 5000);
   }
   render() {
     return (

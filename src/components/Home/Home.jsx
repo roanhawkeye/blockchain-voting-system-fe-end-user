@@ -2,15 +2,18 @@ import React from 'react';
 import './styles.scss';
 
 import Transactions from './../Transactions';
+import Notification from './../Notification';
 
 import API from './../../utils/API';
 
 class Home extends React.Component {
   state = {
-    showTransactions: true,
+    showTransactions: false,
     showEvenDetail: false,
+    showErrorMessage: false,
     assetId: '',
-    assetData: {}
+    assetData: {},
+    errorMessage: {}
   };
 
   search = () => {
@@ -18,22 +21,42 @@ class Home extends React.Component {
       .then(data => {
         console.log(data);
         if(data.uuid){
-          this.setState({assetData : data, showTransactions: true });
+          this.setState({
+            assetData : data, 
+            showTransactions: true,
+            showErrorMessage: false
+          });
+        }
+
+        if(data.status){
+          this.setState({
+            showErrorMessage: true,
+            showTransactions: false,
+            errorMessage: data
+          })
         }
       })
-      .catch(error => console.error(error));
+      .catch(error => {
+        console.error(error);
+        this.setState({ showTransactions: false });
+      });
   }
-
   handleInputChange = (event) => {
     this.setState({assetId: event.target.value});
   }
 
   render() {
       const  showTransactions  = this.state.showTransactions;
+      const  showErrorMessage = this.state.showErrorMessage;
 
       return (
         <section className="column aside hero is-fullheight movement-section">
           <div className="container has-text-centered">
+            { showErrorMessage ? <Notification 
+              isActive={ true }
+              message={this.state.errorMessage.message}
+              isSuccess={false}
+              /> : ''} 
             <h1 className="title is-size-4">Asset Tracking</h1>
             <div className="movement-form">
               <div className="field has-addons">
@@ -47,7 +70,7 @@ class Home extends React.Component {
                 </div>
               </div>
             </div>
-            { showTransactions ? <Transactions /> : ''}
+            { showTransactions ? <Transactions data={this.state.assetData} /> : ''}
           </div>
         </section>
       );
