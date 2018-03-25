@@ -6,15 +6,18 @@ import Notification from './../Notification';
 
 import API from './../../utils/API';
 
+import dummyData from './dummyData';
+
 class Home extends React.Component {
   state = {
-    showTransactions: false,
+    showTransactions: true,
     showEvenDetail: false,
     showErrorMessage: false,
     assetId: '',
-    assetData: {},
+    assetData: dummyData,
     errorMessage: {}
   };
+
 
   search = () => {
     API.findAsset(this.state.assetId)
