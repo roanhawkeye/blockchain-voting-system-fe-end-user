@@ -7,11 +7,7 @@ class Notification extends React.Component {
     super(props);
     this.state = { isActive: props.isActive };
   }
-  componentDidMount() {
-    setTimeout(() => {
-      this.setState({ isActive: false });
-    }, 3000);
-  }
+
   render() {
     return (
       <React.Fragment>
