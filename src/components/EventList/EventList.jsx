@@ -10,8 +10,16 @@ class EventList extends React.Component {
   }
 
   render(){
+    const iconTag = <div className="icon has-text-success icon-position"><i class="fa fa-lg fa-info-circle"/></div>;
     const events = this.state.events.map((event, index) => {
-      return <li key={index}><div className="event-item box">{event.summary}</div></li>
+      return (
+        <li key={index}>
+          <div className="event-item box">
+            <div>{event.summary}</div>
+            {iconTag}
+          </div>
+        </li>
+      )
     });
     return(
       <section className="events-container">
