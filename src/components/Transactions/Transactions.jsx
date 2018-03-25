@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 
 import EventBreadcrumb from './../EventBreadcrumb';
+import EventList from './../EventList';
 
 class Transactions extends React.Component {
 
@@ -55,7 +56,7 @@ class Transactions extends React.Component {
                     </div>
                   </div>
                 </div>
-                Events Here
+                <EventList events={this.props.data.events} />
               </div>
             </div>
           </div>
