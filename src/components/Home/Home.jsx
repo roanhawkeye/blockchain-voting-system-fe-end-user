@@ -10,11 +10,11 @@ import dummyData from './dummyData';
 
 class Home extends React.Component {
   state = {
-    showTransactions: true,
+    showTransactions: false,
     showEvenDetail: false,
     showErrorMessage: false,
     assetId: '',
-    assetData: dummyData,
+    assetData: {},
     errorMessage: {}
   };
 
