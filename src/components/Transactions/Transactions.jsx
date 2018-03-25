@@ -7,13 +7,15 @@ import EventBreadcrumb from './../EventBreadcrumb';
 class Transactions extends React.Component {
 
   render() {
+    const eventSummaries = this.props.data.events.map((event) => event.summary );
+
     return (
       <section className="hero is-white sub-container">
         <div className="hero-head">
             <h1 className="title is-size-4">Transactions</h1>
             <div className="columns">
               <div className="column">
-                <EventBreadcrumb events={this.props.data.events} />
+                <EventBreadcrumb events={eventSummaries} />
               </div>
             </div>
         </div>
