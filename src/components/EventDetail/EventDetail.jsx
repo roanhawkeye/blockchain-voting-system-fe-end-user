@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 
+import './styles.scss';
+
 class EventDetail extends React.Component {
   constructor(props){
     super(props);
@@ -16,8 +18,47 @@ class EventDetail extends React.Component {
       <div className="modal is-active">
         <div className="modal-background"></div>
         <div className="modal-content">
-          <section class="modal-card-body">
-            Hello Event Details: {this.state.event.summary}
+          <header className="modal-card-head">
+            <p className="modal-card-title is-uppercase">Asset Tracking Event Detail</p>
+          </header>
+          <section className="modal-card-body">
+            <div className="container">
+              <div className="columns">
+                <div className="column is-one-third">
+                  <div>
+                    <figure className="image is-square">
+                      <img src={`data:image/jpeg;charset=utf-8;base64, ${ this.state.event.encodedImage }`} alt="Event Image"/>
+                    </figure>
+                  </div>
+                </div>
+                <div className="column is-two-fifths">
+                  <div className="field is-horizontal">
+                    <div className="field-label is-normal">
+                      <label className="label">Summary:</label>
+                    </div>
+                    <div className="field-body">
+                      <div className="field detail-content">
+                        <p className="control is-expanded has-icons-left">
+                          {this.state.event.summary}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="field is-horizontal">
+                    <div className="field-label is-normal">
+                      <label className="label">Description:</label>
+                    </div>
+                    <div className="field-body">
+                      <div className="field detail-content">
+                        <p className="control is-expanded has-icons-left">
+                          {this.state.event.description}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </section>
         </div>
         <button className="modal-close is-large" aria-label="close" onClick={this.close}></button>
