@@ -2,11 +2,12 @@ import React from 'react';
 import './styles.scss';
 
 import Transactions from './../Transactions';
-import Notification from './../Notification';
+import Snackbar from 'material-ui/Snackbar';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 import API from './../../utils/API';
 
-import dummyData from './dummyData';
+// import dummyData from './dummyData';
 
 class Home extends React.Component {
   state = {
@@ -59,12 +60,6 @@ class Home extends React.Component {
       return (
         <section className="column aside hero is-fullheight movement-section">
           <div className="container has-text-centered">
-            { showErrorMessage ? <Notification 
-              isActive={ showErrorMessage }
-              message={this.state.errorMessage.message}
-              isSuccess={false}
-              handleHideMessageError={this.handleHideMessageError}
-              /> : ''} 
             <h1 className="title is-size-4">Asset Tracking</h1>
             <div className="movement-form">
               <div className="field has-addons">
@@ -80,6 +75,14 @@ class Home extends React.Component {
             </div>
             { showTransactions ? <Transactions data={this.state.assetData} /> : ''}
           </div>
+          <MuiThemeProvider>
+            <Snackbar
+              open={showErrorMessage}
+              message={this.state.errorMessage.message}
+              autoHideDuration={4000}
+              onRequestClose={this.handleHideMessageError}
+            />
+          </MuiThemeProvider>
         </section>
       );
     }

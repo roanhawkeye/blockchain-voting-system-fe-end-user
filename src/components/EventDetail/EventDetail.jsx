@@ -27,7 +27,7 @@ class EventDetail extends React.Component {
                 <div className="column is-one-third">
                   <div>
                     <figure className="image is-square">
-                      <img src={`data:image/jpeg;charset=utf-8;base64, ${ this.state.event.encodedImage }`} alt="Event Image"/>
+                      <img src={`data:image/jpeg;charset=utf-8;base64, ${ this.state.event.encodedImage }`} alt=""/>
                     </figure>
                   </div>
                 </div>

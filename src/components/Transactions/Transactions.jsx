@@ -27,7 +27,7 @@ class Transactions extends React.Component {
                 <div className="title is-size-5">Asset tracking history</div>
                 <div>
                   <figure className="image is-square">
-                    <img src={`data:image/jpeg;charset=utf-8;base64, ${ this.props.data.events[0].encodedImage }`} />
+                    <img src={`data:image/jpeg;charset=utf-8;base64, ${ this.props.data.events[0].encodedImage }`} alt="" />
                   </figure>
                 </div>
               </div>
