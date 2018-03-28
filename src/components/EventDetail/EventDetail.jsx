@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import './styles.scss';
 
 class EventDetail extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = { event: this.props.event }
   }

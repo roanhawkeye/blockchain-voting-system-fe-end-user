@@ -6,7 +6,6 @@ import EventBreadcrumb from './../EventBreadcrumb';
 import EventList from './../EventList';
 
 class Transactions extends React.Component {
-
   render() {
     const eventSummaries = this.props.data.events.map((event) => event.summary );
 

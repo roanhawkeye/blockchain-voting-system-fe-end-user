@@ -2,10 +2,10 @@ import React from 'react';
 import Proptypes from 'prop-types';
 
 class EventBreadcrumb extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = { events: this.props.events };
-    }
+  constructor(props) {
+    super(props);
+    this.state ={ events: this.props.events };
+  }
 
     render(){
         const events = this.props.events.map((event, index) => {
