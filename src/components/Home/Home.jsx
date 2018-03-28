@@ -78,7 +78,7 @@ class Home extends React.Component {
           <MuiThemeProvider>
             <Snackbar
               open={showErrorMessage}
-              message={this.state.errorMessage.message}
+              message="Asset not found. Please verify the ID."
               autoHideDuration={4000}
               onRequestClose={this.handleHideMessageError}
             />
