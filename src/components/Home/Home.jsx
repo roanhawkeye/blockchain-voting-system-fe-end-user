@@ -19,14 +19,13 @@ class Home extends React.Component {
     errorMessage: {}
   };
 
-
   search = () => {
     API.findAsset(this.state.assetId)
       .then(data => {
         console.log(data);
         if(data.uuid){
           this.setState({
-            assetData : data, 
+            assetData : data,
             showTransactions: true,
             showErrorMessage: false
           });
@@ -73,7 +72,7 @@ class Home extends React.Component {
                 </div>
               </div>
             </div>
-            { showTransactions ? <Transactions data={this.state.assetData} /> : ''}
+            { showTransactions && <Transactions data={this.state.assetData} />}
           </div>
           <MuiThemeProvider>
             <Snackbar

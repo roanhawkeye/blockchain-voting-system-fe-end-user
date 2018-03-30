@@ -7,10 +7,9 @@ import EventDetail from './../EventDetail';
 class EventList extends React.Component {
   constructor(props){
     super(props);
-    this.state = { 
-      events: this.props.events,
+    this.state = {
       showDetails: false,
-      event: {} 
+      event: {}
     };
   }
 
@@ -27,14 +26,14 @@ class EventList extends React.Component {
 
   render(){
     const showDetails = this.state.showDetails;
-    
-    const events = this.state.events.map((event, index) => {
+
+    const events = this.props.events.map((event, index) => {
       return (
         <li key={index}>
           <div className="event-item box">
             <div>{event.summary}</div>
             <div className="icon has-text-success icon-position" onClick={this.handleDetails.bind(this, event)}>
-              <i class="fa fa-lg fa-info-circle"/>
+              <i className="fa fa-lg fa-info-circle"/>
             </div>
           </div>
         </li>
@@ -44,12 +43,12 @@ class EventList extends React.Component {
     return(
       <React.Fragment>
         <section className="events-container">
-          <span class="title"> Events: </span>
+          <span className="title"> Events: </span>
           <ul className="event-list">
             {events}
           </ul>
         </section>
-        { showDetails ? <EventDetail event={this.state.event} handleClose={this.handleCloseDetails }/> : '' }
+        { showDetails && <EventDetail event={this.state.event} handleClose={this.handleCloseDetails }/> }
       </React.Fragment>
     )
   }

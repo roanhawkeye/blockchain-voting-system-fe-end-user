@@ -1,14 +1,14 @@
-.movement-section{
+.movement-section {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.has-50-vw{
+.has-50-vw {
   width: 50vw;
 }
 
-.movement-form{
+.movement-form {
   display: flex;
   justify-content: center;
 }
@@ -19,10 +19,14 @@
   align-items: flex-end;
 }
 
-.hero-head{
+.hero-head {
   padding-top: 18px;
 }
 
 .sub-container {
   margin: 30px 0px;
+}
+
+.breadcrumb-container {
+  padding: 1.5rem;
 }
